@@ -37,9 +37,9 @@
     //NSLog(@"%f,%f",point.x, point.y);
     //point.x *= 360.0/320.0;
     //point.y *= 480.0/568.0;
-    float x = point.x * 480.0/568.0;
-    float y = point.y * 360.0/320.0;
-    self.selection = cv::Rect(MAX(x-15,0),MAX(y-15,0),30,30);
+    float x = point.x * 640.0/568.0;
+    float y = point.y * 480.0/320.0;
+    self.selection = cv::Rect(MAX(x-25,0),MAX(y-25,0),50,50);
     self.trackObject = -1;
     _histimg = cv::Scalar::all(0);
     _m_prevPts.clear();
@@ -280,10 +280,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 }
 
 - (void)loadCamera{
-    if ([self.captureSession canSetSessionPreset:AVCaptureSessionPresetMedium]) {
-        self.captureSession.sessionPreset = AVCaptureSessionPresetMedium;
-    }
-    self.captureSession.sessionPreset = AVCaptureSessionPresetMedium;
+    self.captureSession.sessionPreset = AVCaptureSessionPreset640x480;
     NSError *error = nil;
     AVCaptureDevice *captureDevice = [self cameraDevice:YES];
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
