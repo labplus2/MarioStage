@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreMotion/CoreMotion.h>
 
-@interface ViewController : UIViewController<UIWebViewDelegate>
+@interface StageViewController : UIViewController<UIWebViewDelegate>
 {
     CMMotionManager *manager;
     CMDeviceMotionHandler handler;

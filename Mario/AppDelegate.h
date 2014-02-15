@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StageViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) StageViewController *viewController;
 
 @end

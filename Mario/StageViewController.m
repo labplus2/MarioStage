@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 elpeo. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "StageViewController.h"
 
-@interface ViewController ()
+@interface StageViewController ()
 
 @end
 
-@implementation ViewController
+@implementation StageViewController
 
 - (void)viewDidLoad
 {
@@ -71,6 +71,8 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView_
 {
+    if(manager.deviceMotionActive) return;
+
     [manager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
                                  withHandler:^(CMDeviceMotion *motion, NSError *error)
      {
@@ -92,7 +94,7 @@
           float z = motion.attitude.yaw * 180 / M_PI;
           textView.text = [NSString stringWithFormat:@"%f %f %f %f %f", x, y, z, px.width, px.height];
           */
-         textView.text = script;
+         textView.text = [NSString stringWithFormat:@"%d", motion.magneticField.accuracy];
      }];
 }
 
