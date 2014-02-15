@@ -96,16 +96,18 @@
          
          CGSize px = [self angleToPx:CGSizeMake(rad.x-origin.x, rad.y-origin.y)];
          
-         float f = ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft) ? -1 : 1;
+         float f = (motion.gravity.x > 0) ? 1 : -1;
          NSString* script = [NSString stringWithFormat:@"entryPoint(\"scroll\",%f,%f);", -px.width, f*px.height];
          [webView stringByEvaluatingJavaScriptFromString:script];
-         
+
          /*
           float x = motion.attitude.pitch * 180 / M_PI;
           float y = motion.attitude.roll * 180 / M_PI;
           float z = motion.attitude.yaw * 180 / M_PI;
           textView.text = [NSString stringWithFormat:@"%f %f %f %f %f", x, y, z, px.width, px.height];
-          */         
+          */
+         textView.text = [NSString stringWithFormat:@"%f", motion.gravity.x];
+         
      }];
 }
 
