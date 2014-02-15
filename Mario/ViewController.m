@@ -22,12 +22,12 @@
     manager = [[CMMotionManager alloc] init];
     //    manager.deviceMotionUpdateInterval = 0.1f;
     
-    float projector[] = {90, 45.5, 25.6}; // プロジェクタ小
+    float projector[] = {80, 40.6, 22.8}; // プロジェクタ小
     //float projector[] = {186, 125.2, 71}; // プロジェクタ大
     
-    distance = projector[0]; // プロジェクタとスクリーンの距離(cm)
-    CGSize halfRadian = CGSizeMake(0.2423625801479178, 0.14345226330365873); // プロジェクタの画角の半分(radian)
-    //CGSize halfRadian = CGSizeMake(atan2f(projector[1]/2, projector[0]), atan2f(projector[2]/2, projector[0])); // プロジェクタの画角の半分(radian)
+    distance = 90; // プロジェクタとスクリーンの距離(cm)
+    //CGSize halfRadian = CGSizeMake(0.2423625801479178, 0.14345226330365873); // プロジェクタの画角の半分(radian)
+    CGSize halfRadian = CGSizeMake(atan2f(projector[1]/2, projector[0]), atan2f(projector[2]/2, projector[0])); // プロジェクタの画角の半分(radian)
     CGSize halfCm = CGSizeMake(distance*tanf(halfRadian.width), distance*tanf(halfRadian.height)); // スクリーンサイズの半分(cm)
     dpcm = CGPointMake(284/halfCm.width, 160/halfCm.height); // 1cmあたりのピクセル数
     origin = CGPointZero;
