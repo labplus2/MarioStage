@@ -31,6 +31,12 @@
      
     if([UIScreen screens].count>1){
         UIScreen* screen = [[UIScreen screens] objectAtIndex:1];
+        for(UIScreenMode* mode in screen.availableModes){
+            if(mode.size.width == 640){
+                screen.currentMode = mode;
+                break;
+            }
+        }
         self.stageWindow = [[UIWindow alloc] initWithFrame:[screen bounds]];
         self.stageWindow.backgroundColor = [UIColor clearColor];
         [self.stageWindow setScreen:screen];
