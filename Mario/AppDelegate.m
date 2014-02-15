@@ -32,10 +32,10 @@
         
     }else{
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        //self.cameraViewController = [[CameraViewController alloc] init];
-        //self.window.rootViewController = self.cameraViewController;
-        self.viewController = [[StageViewController alloc] init];
-        self.window.rootViewController = self.viewController;
+        self.cameraViewController = [[CameraViewController alloc] init];
+        self.window.rootViewController = self.cameraViewController;
+        //self.viewController = [[StageViewController alloc] init];
+        //self.window.rootViewController = self.viewController;
         [self.window makeKeyAndVisible];
     }
     

@@ -38,7 +38,7 @@
     //point.x *= 360.0/320.0;
     //point.y *= 480.0/568.0;
     float x = point.x * 480.0/568.0;
-    float y = (320-point.y) * 360.0/320.0;
+    float y = point.y * 360.0/320.0;
     self.selection = cv::Rect(MAX(x-25,0),MAX(y-25,0),50,50);
     self.trackObject = -1;
     _histimg = cv::Scalar::all(0);
@@ -144,7 +144,13 @@
         cv::calcBackProject(&hue, 1, 0, _hist, _backproj, &phranges);
         self.backproj &= self.mask;
         //cv::meanShift(_backproj, _trackWindow, cv::TermCriteria( cv::TermCriteria::EPS | cv::TermCriteria::COUNT, 10, 1 ));
-        cv::RotatedRect trackBox =  cv::CamShift(_backproj, _trackWindow, cv::TermCriteria( cv::TermCriteria::EPS | cv::TermCriteria::COUNT, 10, 1 ));
+        cv::RotatedRect trackBox;
+        try {
+            trackBox =  cv::CamShift(_backproj, _trackWindow, cv::TermCriteria( cv::TermCriteria::EPS | cv::TermCriteria::COUNT, 10, 1 ));
+        } catch (cv::Exception& e) {
+            const char* err_msg = e.what();
+            NSLog(@"%s", err_msg);
+        }
         if( self.trackWindow.area() <= 1 )
         {
             int cols = self.backproj.cols, rows = self.backproj.rows, r = (MIN(cols, rows) + 5)/6;

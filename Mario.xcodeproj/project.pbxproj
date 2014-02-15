@@ -403,7 +403,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: issay 吉田 (5A5MS29VQ6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/issaymk2/Yahoo/iphone/MarioTracker/MarioStage,
+					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mario/Mario-Prefix.pch";
@@ -421,7 +421,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/issaymk2/Yahoo/iphone/MarioTracker/MarioStage,
+					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mario/Mario-Prefix.pch";
