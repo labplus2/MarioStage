@@ -14,7 +14,6 @@
     CMMotionManager *manager;
     CMDeviceMotionHandler handler;
     UITextView* textView;
-    UIScrollView *scrollView;
     UIWebView *webView;
     float distance;
     CGPoint dpcm;

@@ -13,30 +13,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
+
+    // メイン画面でカメラを表示
+    self.cameraWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.cameraWindow.backgroundColor = [UIColor clearColor];
+    self.cameraViewController = [[CameraViewController alloc] init];
+    self.cameraWindow.rootViewController = self.cameraViewController;
+    [self.cameraWindow makeKeyAndVisible];
+
+    /* メイン画面でステージを表示
+    self.stageWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.stageWindow.backgroundColor = [UIColor clearColor];
+    self.stageViewController = [[StageViewController alloc] init];
+    self.stageWindow.rootViewController = self.stageViewController;
+    [self.stageWindow makeKeyAndVisible];
+    */
+     
     if([UIScreen screens].count>1){
         UIScreen* screen = [[UIScreen screens] objectAtIndex:1];
-        self.window2 = [[UIWindow alloc] initWithFrame:[screen bounds]];
-        self.window2.backgroundColor = [UIColor clearColor];
-        [self.window2 setScreen:screen];
-        self.window2.hidden = NO;
-        self.viewController = [[StageViewController alloc] init];
-        self.window2.rootViewController = self.viewController;
-        [self.window2 makeKeyAndVisible];
-        
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        self.window.backgroundColor = [UIColor clearColor];
-        self.cameraViewController = [[CameraViewController alloc] init];
-        self.window.rootViewController = self.cameraViewController;
-        [self.window makeKeyAndVisible];
-        
-    }else{
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        self.cameraViewController = [[CameraViewController alloc] init];
-        self.window.rootViewController = self.cameraViewController;
-        //self.viewController = [[StageViewController alloc] init];
-        //self.window.rootViewController = self.viewController;
-        [self.window makeKeyAndVisible];
+        self.stageWindow = [[UIWindow alloc] initWithFrame:[screen bounds]];
+        self.stageWindow.backgroundColor = [UIColor clearColor];
+        [self.stageWindow setScreen:screen];
+        self.stageWindow.hidden = NO;
+        self.stageViewController = [[StageViewController alloc] init];
+        self.stageWindow.rootViewController = self.stageViewController;
+        [self.stageWindow makeKeyAndVisible];
     }
     
     return YES;

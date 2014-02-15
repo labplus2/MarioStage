@@ -12,8 +12,9 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UIWindow *window2;
-@property (strong, nonatomic) StageViewController *viewController;
+@property (strong, nonatomic) UIWindow *cameraWindow;
+@property (strong, nonatomic) UIWindow *stageWindow;
 @property (strong, nonatomic) CameraViewController *cameraViewController;
+@property (strong, nonatomic) StageViewController *stageViewController;
+
 @end
