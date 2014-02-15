@@ -51,7 +51,7 @@
     textView.font = [UIFont fontWithName:@"Arial" size:18];
     textView.contentInset = UIEdgeInsetsMake(-11,-4,0,0);
     [self.view addSubview:textView];
-    //textView.hidden = YES;
+    textView.hidden = YES;
 }
 
 - (CGSize)angleToPx:(CGSize)radians
@@ -76,6 +76,7 @@
     [manager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
                                  withHandler:^(CMDeviceMotion *motion, NSError *error)
      {
+         //CMDeviceMotion* motion = manager.deviceMotion;
          CGPoint rad = CGPointMake(motion.attitude.yaw, motion.attitude.roll);
          if(CGPointEqualToPoint(origin, CGPointZero)){
              origin = rad;
@@ -94,7 +95,7 @@
           float z = motion.attitude.yaw * 180 / M_PI;
           textView.text = [NSString stringWithFormat:@"%f %f %f %f %f", x, y, z, px.width, px.height];
           */
-         textView.text = [NSString stringWithFormat:@"%d", motion.magneticField.accuracy];
+         textView.text = [NSString stringWithFormat:@"[%d] %@", motion.magneticField.accuracy, script];
      }];
 }
 
