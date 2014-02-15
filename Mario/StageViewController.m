@@ -81,7 +81,6 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView_
 {
-    [webView.scrollView setZoomScale:self.view.bounds.size.width/568.0f];
     if(manager.deviceMotionActive) return;
 
     [manager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical
@@ -106,8 +105,6 @@
           float z = motion.attitude.yaw * 180 / M_PI;
           textView.text = [NSString stringWithFormat:@"%f %f %f %f %f", x, y, z, px.width, px.height];
           */
-         textView.text = [NSString stringWithFormat:@"%f", motion.gravity.x];
-         
      }];
 }
 
