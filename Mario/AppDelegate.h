@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "StageViewController.h"
+#import "CameraViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow *window2;
 @property (strong, nonatomic) StageViewController *viewController;
-
+@property (strong, nonatomic) CameraViewController *cameraViewController;
 @end
