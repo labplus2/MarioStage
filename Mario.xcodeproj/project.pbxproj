@@ -21,6 +21,12 @@
 		BBA79B7618AF301F0099A4FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BBA79B7418AF301F0099A4FE /* InfoPlist.strings */; };
 		BBA79B7818AF301F0099A4FE /* MarioTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA79B7718AF301F0099A4FE /* MarioTests.m */; };
 		BBA79B8218AF3B910099A4FE /* paper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBA79B8118AF3B910099A4FE /* paper.jpg */; };
+		F94DDE0818AFA9E500577B8D /* CameraViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F94DDE0718AFA9E500577B8D /* CameraViewController.mm */; };
+		F94DDE0B18AFA9F200577B8D /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = F94DDE0A18AFA9F200577B8D /* UIImage+OpenCV.mm */; };
+		F94DDE0D18AFAA1700577B8D /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94DDE0C18AFAA1700577B8D /* opencv2.framework */; };
+		F94DDE0F18AFAC1800577B8D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94DDE0E18AFAC1800577B8D /* AVFoundation.framework */; };
+		F94DDE1118AFAC1E00577B8D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94DDE1018AFAC1E00577B8D /* CoreMedia.framework */; };
+		F94DDE1318AFAC2400577B8D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F94DDE1218AFAC2400577B8D /* CoreVideo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,14 @@
 		BBA79B7518AF301F0099A4FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BBA79B7718AF301F0099A4FE /* MarioTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarioTests.m; sourceTree = "<group>"; };
 		BBA79B8118AF3B910099A4FE /* paper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = paper.jpg; sourceTree = "<group>"; };
+		F94DDE0618AFA9E500577B8D /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		F94DDE0718AFA9E500577B8D /* CameraViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraViewController.mm; sourceTree = "<group>"; };
+		F94DDE0918AFA9F200577B8D /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		F94DDE0A18AFA9F200577B8D /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		F94DDE0C18AFAA1700577B8D /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		F94DDE0E18AFAC1800577B8D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F94DDE1018AFAC1E00577B8D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		F94DDE1218AFAC2400577B8D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +74,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F94DDE1318AFAC2400577B8D /* CoreVideo.framework in Frameworks */,
+				F94DDE1118AFAC1E00577B8D /* CoreMedia.framework in Frameworks */,
+				F94DDE0F18AFAC1800577B8D /* AVFoundation.framework in Frameworks */,
 				BBA79B4F18AF301F0099A4FE /* CoreGraphics.framework in Frameworks */,
 				BBA79B5118AF301F0099A4FE /* UIKit.framework in Frameworks */,
+				F94DDE0D18AFAA1700577B8D /* opencv2.framework in Frameworks */,
 				BBA79B4D18AF301F0099A4FE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +119,10 @@
 		BBA79B4B18AF301F0099A4FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F94DDE1218AFAC2400577B8D /* CoreVideo.framework */,
+				F94DDE1018AFAC1E00577B8D /* CoreMedia.framework */,
+				F94DDE0E18AFAC1800577B8D /* AVFoundation.framework */,
+				F94DDE0C18AFAA1700577B8D /* opencv2.framework */,
 				BBA79B4C18AF301F0099A4FE /* Foundation.framework */,
 				BBA79B4E18AF301F0099A4FE /* CoreGraphics.framework */,
 				BBA79B5018AF301F0099A4FE /* UIKit.framework */,
@@ -116,6 +138,10 @@
 				BBA79B5C18AF301F0099A4FE /* AppDelegate.m */,
 				BBA79B6118AF301F0099A4FE /* StageViewController.h */,
 				BBA79B6218AF301F0099A4FE /* StageViewController.m */,
+				F94DDE0618AFA9E500577B8D /* CameraViewController.h */,
+				F94DDE0718AFA9E500577B8D /* CameraViewController.mm */,
+				F94DDE0918AFA9F200577B8D /* UIImage+OpenCV.h */,
+				F94DDE0A18AFA9F200577B8D /* UIImage+OpenCV.mm */,
 				BBA79B6418AF301F0099A4FE /* Images.xcassets */,
 				BBA79B5318AF301F0099A4FE /* Supporting Files */,
 			);
@@ -252,6 +278,8 @@
 				BBA79B6318AF301F0099A4FE /* StageViewController.m in Sources */,
 				BBA79B5D18AF301F0099A4FE /* AppDelegate.m in Sources */,
 				BBA79B5918AF301F0099A4FE /* main.m in Sources */,
+				F94DDE0818AFA9E500577B8D /* CameraViewController.mm in Sources */,
+				F94DDE0B18AFA9F200577B8D /* UIImage+OpenCV.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +338,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: issay 吉田 (5A5MS29VQ6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -328,6 +356,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "575D821F-5F1A-4843-AA1E-511FE4F75353";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -360,6 +389,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PROVISIONING_PROFILE = "575D821F-5F1A-4843-AA1E-511FE4F75353";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -370,10 +400,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: issay 吉田 (5A5MS29VQ6)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/issaymk2/Yahoo/iphone/MarioTracker/MarioStage,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mario/Mario-Prefix.pch";
 				INFOPLIST_FILE = "Mario/Mario-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "575D821F-5F1A-4843-AA1E-511FE4F75353";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -383,10 +419,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/issaymk2/Yahoo/iphone/MarioTracker/MarioStage,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mario/Mario-Prefix.pch";
 				INFOPLIST_FILE = "Mario/Mario-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "575D821F-5F1A-4843-AA1E-511FE4F75353";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

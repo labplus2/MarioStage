@@ -16,16 +16,28 @@
     
     if([UIScreen screens].count>1){
         UIScreen* screen = [[UIScreen screens] objectAtIndex:1];
-        self.window = [[UIWindow alloc] initWithFrame:[screen bounds]];
+        self.window2 = [[UIWindow alloc] initWithFrame:[screen bounds]];
+        self.window2.backgroundColor = [UIColor clearColor];
+        [self.window2 setScreen:screen];
+        self.window2.hidden = NO;
+        self.viewController = [[StageViewController alloc] init];
+        self.window2.rootViewController = self.viewController;
+        [self.window2 makeKeyAndVisible];
+        
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.backgroundColor = [UIColor clearColor];
-        [self.window setScreen:screen];
-        self.window.hidden = NO;
+        self.cameraViewController = [[CameraViewController alloc] init];
+        self.window.rootViewController = self.cameraViewController;
+        [self.window makeKeyAndVisible];
+        
     }else{
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        //self.cameraViewController = [[CameraViewController alloc] init];
+        //self.window.rootViewController = self.cameraViewController;
+        self.viewController = [[StageViewController alloc] init];
+        self.window.rootViewController = self.viewController;
+        [self.window makeKeyAndVisible];
     }
-    self.viewController = [[StageViewController alloc] init];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
     
     return YES;
 }
