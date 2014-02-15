@@ -61,9 +61,22 @@
     return YES;
 }
 
--(void)calibration
+- (BOOL)shouldAutorotate
 {
     origin = CGPointZero;
+    return NO;
+}
+
+-(void)callStart
+{
+    NSString* script = [NSString stringWithFormat:@"entryPoint(\"start\");"];
+    [webView stringByEvaluatingJavaScriptFromString:script];
+}
+
+-(void)callFire:(NSUInteger)eventID
+{
+    NSString* script = [NSString stringWithFormat:@"entryPoint(\"fire\",%u);", eventID];
+    [webView stringByEvaluatingJavaScriptFromString:script];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView_
@@ -83,7 +96,8 @@
          
          CGSize px = [self angleToPx:CGSizeMake(rad.x-origin.x, rad.y-origin.y)];
          
-         NSString* script = [NSString stringWithFormat:@"entryPoint(\"scroll\",%f,%f);", -px.width, -px.height];
+         float f = ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft) ? -1 : 1;
+         NSString* script = [NSString stringWithFormat:@"entryPoint(\"scroll\",%f,%f);", -px.width, f*px.height];
          [webView stringByEvaluatingJavaScriptFromString:script];
          
          /*
@@ -92,7 +106,6 @@
           float z = motion.attitude.yaw * 180 / M_PI;
           textView.text = [NSString stringWithFormat:@"%f %f %f %f %f", x, y, z, px.width, px.height];
           */         
-         textView.text = [NSString stringWithFormat:@"%@", NSStringFromCGRect(self.view.bounds)];
      }];
 }
 

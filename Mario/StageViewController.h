@@ -20,6 +20,7 @@
     CGPoint origin;
 }
 
--(void)calibration;
+-(void)callStart;
+-(void)callFire:(NSUInteger)eventID;
 
 @end
