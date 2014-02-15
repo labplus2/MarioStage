@@ -43,7 +43,7 @@
 
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 568, 320)];
     webView.delegate = self;
-    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://dl.dropboxusercontent.com/u/4957500/OHD2/OpenHackDay2/index.html"] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60];
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://dl.dropboxusercontent.com/u/2221891/ohd2/OpenHackDay2/index.html"] cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:60];
     [webView loadRequest:request];
     [self.view addSubview:webView];
 
