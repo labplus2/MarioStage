@@ -73,10 +73,10 @@
 {
     if(manager.deviceMotionActive) return;
 
-    [manager startDeviceMotionUpdatesToQueue:[NSOperationQueue currentQueue]
-                                 withHandler:^(CMDeviceMotion *motion, NSError *error)
+    [manager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical
+                                                 toQueue:[NSOperationQueue currentQueue]
+                                             withHandler:^(CMDeviceMotion *motion, NSError *error)
      {
-         //CMDeviceMotion* motion = manager.deviceMotion;
          CGPoint rad = CGPointMake(motion.attitude.yaw, motion.attitude.roll);
          if(CGPointEqualToPoint(origin, CGPointZero)){
              origin = rad;
