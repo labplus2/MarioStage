@@ -39,7 +39,7 @@
     //point.y *= 480.0/568.0;
     float x = point.x * 480.0/568.0;
     float y = point.y * 360.0/320.0;
-    self.selection = cv::Rect(MAX(x-25,0),MAX(y-25,0),50,50);
+    self.selection = cv::Rect(MAX(x-15,0),MAX(y-15,0),30,30);
     self.trackObject = -1;
     _histimg = cv::Scalar::all(0);
     _m_prevPts.clear();
@@ -93,7 +93,6 @@
 - (void) execImageProcessing:(UIImage *)inputImage
 {
     //NSLog(@"%f,%f",inputImage.size.width, inputImage.size.height);
-    bool backprojMode = false;
     //int vmin = 10, vmax = 256, smin = 30;
     cv::Mat hue;
     int hsize = 16;
@@ -143,13 +142,12 @@
         }
         cv::calcBackProject(&hue, 1, 0, _hist, _backproj, &phranges);
         self.backproj &= self.mask;
-        //cv::meanShift(_backproj, _trackWindow, cv::TermCriteria( cv::TermCriteria::EPS | cv::TermCriteria::COUNT, 10, 1 ));
         cv::RotatedRect trackBox;
         try {
-            trackBox =  cv::CamShift(_backproj, _trackWindow, cv::TermCriteria( cv::TermCriteria::EPS | cv::TermCriteria::COUNT, 10, 1 ));
+            //trackBox =  cv::CamShift(_backproj, _trackWindow, cv::TermCriteria( cv::TermCriteria::EPS | cv::TermCriteria::COUNT, 10, 1 ));
+            cv::meanShift(_backproj, _trackWindow, cv::TermCriteria( cv::TermCriteria::EPS | cv::TermCriteria::COUNT, 10, 1 ));
         } catch (cv::Exception& e) {
-            const char* err_msg = e.what();
-            NSLog(@"%s", err_msg);
+            NSLog(@"%s", e.what());
         }
         if( self.trackWindow.area() <= 1 )
         {
@@ -159,10 +157,13 @@
             cv::Rect(0, 0, cols, rows);
         }
         
-        if( backprojMode )
-            cvtColor( self.backproj, img, cv::COLOR_GRAY2BGR );
-        cv::ellipse( img, trackBox, cv::Scalar(0,0,255), 3 );
-        //cv::rectangle(img, _trackWindow, cv::Scalar(0,0,255));
+        //cvtColor( self.backproj, img, cv::COLOR_GRAY2BGR );
+        try {
+            //cv::ellipse( img, trackBox, cv::Scalar(0,0,255), 3 );
+            cv::rectangle(img, _trackWindow, cv::Scalar(0,0,255));
+        } catch (cv::Exception& e) {
+            NSLog(@"%s", e.what());
+        }
     }
                 
     self.imageView.image = [UIImage imageWithCVMat:img];

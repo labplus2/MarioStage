@@ -31,8 +31,13 @@
     dpcm = CGPointMake(284/halfCm.width, 160/halfCm.height); // 1cmあたりのピクセル数
     origin = CGPointZero;
     
-    webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 568, 320)];
+    //webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 568, 320)];
+    CGRect bounds = [[[UIScreen screens] objectAtIndex:1] bounds];
+    //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%f,%f,%f,%f",bounds.origin.x,bounds.origin.y,bounds.size.width,bounds.size.height] message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //[alert show];
+    webView = [[UIWebView alloc] initWithFrame:bounds];
     webView.delegate = self;
+    //webView.scalesPageToFit = YES;
     [self.view addSubview:webView];
 
     textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 400, 18)];
